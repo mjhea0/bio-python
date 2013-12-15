@@ -1,4 +1,0 @@
-Please note: The third problem is incomplete, due to time constraints.
-
-Also, this assignment proved to be difficult since I am unfamilar with the data inside a `fastq` file. I believe they are sequences of genes/chormosomes, which make up DNA. With sample files, I could have used a test first approach - which I am a huge fan of. 
-
