@@ -1,5 +1,7 @@
 import unittest
 from problem1 import *
+from problem2 import *
+from problem3 import *
 
 class Problem1TestCase(unittest.TestCase):
     """Tests for `problem1.py`."""
@@ -11,6 +13,16 @@ class Problem1TestCase(unittest.TestCase):
     def parseFastqSeq(self):
         """Should return percentage of sequences > 30 vs all sequences"""
         self.assertEqual(parseFastqSeq(['mock-test1.fastq']), 0.428571428571)
+
+class Problem2TestCase(unittest.TestCase):
+    """Tests for `problem2.py`."""
+
+    pass
+
+class Problem3TestCase(unittest.TestCase):
+    """Tests for `problem3.py`."""
+
+    pass
 
 if __name__ == '__main__':
     unittest.main()
