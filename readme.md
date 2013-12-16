@@ -1,5 +1,7 @@
 # for an interview
 
+> Note: problem 3 is incomplete
+
 ## setup
 
 1. clone repo - `$ git clone https://github.com/mjhea0/bio-python.git`
