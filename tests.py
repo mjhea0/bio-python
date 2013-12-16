@@ -1,7 +1,7 @@
 import unittest
 from problem1 import *
 from problem2 import *
-from problem3 import *
+# from problem3 import *
 
 class Problem1TestCase(unittest.TestCase):
     """Tests for `problem1.py`."""
@@ -10,19 +10,19 @@ class Problem1TestCase(unittest.TestCase):
         """Should return all files from the sub directories"""
         self.assertEqual(findFastqFiles('./sample_files/fastq', '*.fastq'), ['./sample_files/fastq/read1/Sample_R1.fastq', './sample_files/fastq/read2/Sample_R2.fastq'])
 
-    def parseFastqSeq(self):
+    def test_parseFastqSeq(self):
         """Should return percentage of sequences > 30 vs all sequences"""
-        self.assertEqual(parseFastqSeq(['mock-test1.fastq']), 0.428571428571)
+        self.assertEqual(parseFastqSeq(['mock-test1.fastq']), 0.42857142857142855)
 
-class Problem2TestCase(unittest.TestCase):
-    """Tests for `problem2.py`."""
+# class Problem2TestCase(unittest.TestCase):
+#     """Tests for `problem2.py`."""
 
-    pass
+#     pass
 
-class Problem3TestCase(unittest.TestCase):
-    """Tests for `problem3.py`."""
+# class Problem3TestCase(unittest.TestCase):
+#     """Tests for `problem3.py`."""
 
-    pass
+#     pass
 
 if __name__ == '__main__':
     unittest.main()

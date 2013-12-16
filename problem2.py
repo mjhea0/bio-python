@@ -6,17 +6,23 @@
 
 
 from Bio import SeqIO
-from collections import Counter
 
-def freqFastqSeq(filename):
-    for sequence in SeqIO.parse(filename, "fastq"):
-        seq = str(sequence.seq)
-        for i in range(len(seq)):
-            cnt = Counter(seq[i:i+30])
-        for subseq, count in cnt.items():
-           print subseq + '\t' + str(count)
+def freqFastaSeq(file):
+    sequences = []
+    fasta_sequences = SeqIO.parse(open("./sample_files/fasta/sample.fasta"),'fasta')
+    for fasta in fasta_sequences:
+        sequence = fasta.seq.tostring()
+        sequences.append(sequence)
+    from collections import Counter
+    c = Counter(sequences)
+    most_common_seq = c.most_common(10)
+    return most_common_seq
 
 #### run code ####
 
-fastaFile = "test.fastq"
-freqFastqSeq(fastaFile)
+fastaFile = "./sample_files/fasta/sample.fasta"
+print freqFastaSeq(fastaFile)
+
+
+
+
