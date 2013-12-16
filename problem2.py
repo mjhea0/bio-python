@@ -8,6 +8,7 @@
 from Bio import SeqIO
 
 def freqFastaSeq(file):
+    """Parses a fasta file, returns 10 most common sequences"""
     sequences = []
     fasta_sequences = SeqIO.parse(open(file),'fasta')
     for fasta in fasta_sequences:

@@ -20,6 +20,7 @@ def findFastqFiles(directory, pattern):
 
 # parse sequences, output percent
 def parseFastqSeq(array):
+    """Returns percent of sequences greater than 30"""
     all_sequences   = []
     large_sequences = []
     for filename in array:
