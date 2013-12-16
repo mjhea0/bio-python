@@ -35,7 +35,6 @@ def parseGTF(filename, array):
 
 
 
-
 #### run code ####
 
 filename = "./sample_files/annotate/coordinates_to_annotate.txt"
