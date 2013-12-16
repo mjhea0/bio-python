@@ -9,7 +9,7 @@ from Bio import SeqIO
 
 def freqFastaSeq(file):
     sequences = []
-    fasta_sequences = SeqIO.parse(open("./sample_files/fasta/sample.fasta"),'fasta')
+    fasta_sequences = SeqIO.parse(open(file),'fasta')
     for fasta in fasta_sequences:
         sequence = fasta.seq.tostring()
         sequences.append(sequence)

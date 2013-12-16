@@ -14,10 +14,13 @@ class Problem1TestCase(unittest.TestCase):
         """Should return percentage of sequences > 30 vs all sequences"""
         self.assertEqual(parseFastqSeq(['mock-test1.fastq']), 0.42857142857142855)
 
-# class Problem2TestCase(unittest.TestCase):
-#     """Tests for `problem2.py`."""
+class Problem2TestCase(unittest.TestCase):
+    """Tests for `problem2.py`."""
 
-#     pass
+    def test_find_most_common_sequences(self):
+    	"""Should return 10 most common sequences"""
+    	self.assertEqual(freqFastaSeq('mock-test2.fasta'), [('AAA', 8), ('BBB', 3), ('NNN', 1), ('VVV', 1), ('TRTR', 1), ('123', 1), ('111', 1), ('RTR', 1), ('FFF', 1), ('CCC', 1)])
+
 
 # class Problem3TestCase(unittest.TestCase):
 #     """Tests for `problem3.py`."""
