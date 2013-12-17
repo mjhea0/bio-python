@@ -56,7 +56,7 @@ def parseGTF(filename, array, arrayMinusDups):
 
 #### run code ####
 
-filename1 = "./sample_files/annotate/coordinates_to_annotate.txt"
+filename1 = "./mock-test3.tsv"
 filename2 = "./sample_files/gtf/hg19_annotations.gtf"
 array = parseTSVforChromes(filename1)
 arrayMinusDups = removeListDups(array)
