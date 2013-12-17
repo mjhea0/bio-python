@@ -23,6 +23,7 @@ from collections import OrderedDict
 # from bx.intervals.intersection import IntervalTree
 
 def parseTSVforChromes(filename):
+    """Parses a TSV file, return an array of [chromosome,position]"""
     chromosomes = []
     with open(filename,'rb') as tabbed_file:
         tabbed_file = csv.reader(tabbed_file, delimiter='\t')
@@ -31,6 +32,7 @@ def parseTSVforChromes(filename):
     return chromosomes
 
 def removeListDups(array):
+    """Removes duplicates from an array"""
     outlist = []
     for element in array:
         if element[0] not in outlist:
@@ -38,6 +40,9 @@ def removeListDups(array):
     return outlist
 
 def parseGTF(filename, array, arrayMinusDups):
+    """returns only rows from GTF that match the chromoson from the TSV,
+       then compares that output with the positions and finally returns
+       all rows where the position falls within the range of coordinates"""
     with open(filename,'rb') as tabbed_file:
         tabbed_file = csv.reader(tabbed_file, delimiter='\t')
         for row in tabbed_file:
