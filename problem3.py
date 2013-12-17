@@ -20,7 +20,6 @@
 from Bio import SeqIO
 import csv
 from collections import OrderedDict
-# from bx.intervals.intersection import IntervalTree
 
 def parseTSVforChromes(filename):
     """Parses a TSV file, return an array of [chromosome,position]"""

@@ -1,6 +1,6 @@
 # for an interview
 
-> Note: need to test problem 3
+> Note: tests are green. see screenshot. yay!
 
 ## setup
 
