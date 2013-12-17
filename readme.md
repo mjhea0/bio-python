@@ -1,6 +1,6 @@
 # for an interview
 
-> Note: problem 3 is incomplete
+> Note: need to test problem 3
 
 ## setup
 
