@@ -13,33 +13,46 @@
 # performance, if possible.
 
 
+# Clarification Questio Basically, I need to find the chromosome in the TSV file as well as the coordinate, then see # if that 
+# chromosome is in the GTF file and if so, see if the coordinate falls within the coordinates. If so, the results need to be 
+# outputted - is that right?
+
 from Bio import SeqIO
 import csv
+from collections import OrderedDict
 # from bx.intervals.intersection import IntervalTree
 
-def parseTSV(filename):
+def parseTSVforChromes(filename):
     chromosomes = []
     with open(filename,'rb') as tabbed_file:
         tabbed_file = csv.reader(tabbed_file, delimiter='\t')
         for row in tabbed_file:
-            chromosomes.append(row[0])
+            chromosomes.append(row)
     return chromosomes
 
-def parseGTF(filename, array):
+def removeListDups(array):
+    outlist = []
+    for element in array:
+        if element[0] not in outlist:
+            outlist.append(element[0])
+    return outlist
+
+def parseGTF(filename, array, arrayMinusDups):
     with open(filename,'rb') as tabbed_file:
         tabbed_file = csv.reader(tabbed_file, delimiter='\t')
         for row in tabbed_file:
-            for chrom in array:
+            for chrom in arrayMinusDups:
                 if row[0] == chrom:
-                    print row[8]
+                    for cordRow in array:
+                        if (row[3] <= cordRow[1] <= row[4]):
+                            print row
 
 
 
 #### run code ####
 
-filename = "./sample_files/annotate/coordinates_to_annotate.txt"
-parseTSV(filename)
-
-filename = "./sample_files/gtf/hg19_annotations.gtf"
-array = parseTSV(filename)
-parseGTF(filename, array)
+filename1 = "./sample_files/annotate/coordinates_to_annotate.txt"
+filename2 = "./sample_files/gtf/hg19_annotations.gtf"
+array = parseTSVforChromes(filename1)
+arrayMinusDups = removeListDups(array)
+parseGTF(filename2, array, arrayMinusDups)
