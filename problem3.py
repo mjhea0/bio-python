@@ -43,6 +43,7 @@ def parseGTF(filename, array, arrayMinusDups):
     """returns only rows from GTF that match the chromoson from the TSV,
        then compares that output with the positions and finally returns
        all rows where the position falls within the range of coordinates"""
+    finalOutput = []
     with open(filename,'rb') as tabbed_file:
         tabbed_file = csv.reader(tabbed_file, delimiter='\t')
         for row in tabbed_file:
@@ -50,7 +51,8 @@ def parseGTF(filename, array, arrayMinusDups):
                 if row[0] == chrom:
                     for cordRow in array:
                         if (row[3] <= cordRow[1] <= row[4]):
-                            print row
+                            finalOutput.append(cordRow)
+    return finalOutput
 
 
 
@@ -60,4 +62,4 @@ filename1 = "./mock-test3.tsv"
 filename2 = "./sample_files/gtf/hg19_annotations.gtf"
 array = parseTSVforChromes(filename1)
 arrayMinusDups = removeListDups(array)
-parseGTF(filename2, array, arrayMinusDups)
+print parseGTF(filename2, array, arrayMinusDups)

@@ -34,5 +34,12 @@ class Problem3TestCase(unittest.TestCase):
         array = [['chr12', '20704380'], ['chr12', '20704379'], ['chr21', '9827238'], ['chr5', '71146882'], ['chr8', '38283717'], ['chr12', '20704371'], ['chr12', '20704377'], ['chr21', '9827364'], ['chr4', '184083607'], ['chr11', '85195011'], ['chr11', '85195078'], ['chr12', '20704387'], ['chr21', '9827418'], ['chr12', '20704369'], ['chr12', '20704360'], ['chr2', '133012823']]
         self.assertEqual(removeListDups(array), ['chr12', 'chr21', 'chr5', 'chr8', 'chr4', 'chr11', 'chr2'])
 
+    def test_remove_parse_GTF(self):
+        """Should return rows from GTF file where chromosome matches and the position (both from TSV file) falls within
+        the range given in the GTF file"""
+        array1 = [['chr12', '20704380'], ['chr12', '20704379'], ['chr21', '9827238'], ['chr5', '71146882'], ['chr8', '38283717'], ['chr12', '20704371'], ['chr12', '20704377'], ['chr21', '9827364'], ['chr4', '184083607'], ['chr11', '85195011'], ['chr11', '85195078'], ['chr12', '20704387'], ['chr21', '9827418'], ['chr12', '20704369'], ['chr12', '20704360'], ['chr2', '133012823']]
+        array2 = ['chr12', 'chr21', 'chr5', 'chr8', 'chr4', 'chr11', 'chr2']
+        self.assertEqual(parseGTF("mock-test3.gtf",array1, array2), [['chr12', '20704380'], ['chr12', '20704379'], ['chr12', '20704387']])
+
 if __name__ == '__main__':
     unittest.main()
