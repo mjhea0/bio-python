@@ -29,5 +29,10 @@ class Problem3TestCase(unittest.TestCase):
         """Should return an array of [chromosome,position]"""
         self.assertEqual(parseTSVforChromes('mock-test3.tsv'), [['chr12', '20704380'], ['chr12', '20704379'], ['chr21', '9827238'], ['chr5', '71146882'], ['chr8', '38283717'], ['chr12', '20704371'], ['chr12', '20704377'], ['chr21', '9827364'], ['chr4', '184083607'], ['chr11', '85195011'], ['chr11', '85195078'], ['chr12', '20704387'], ['chr21', '9827418'], ['chr12', '20704369'], ['chr12', '20704360'], ['chr2', '133012823']])
 
+    def test_remove_array_dups(self):
+        """Should remove dups from an array"""
+        array = [['chr12', '20704380'], ['chr12', '20704379'], ['chr21', '9827238'], ['chr5', '71146882'], ['chr8', '38283717'], ['chr12', '20704371'], ['chr12', '20704377'], ['chr21', '9827364'], ['chr4', '184083607'], ['chr11', '85195011'], ['chr11', '85195078'], ['chr12', '20704387'], ['chr21', '9827418'], ['chr12', '20704369'], ['chr12', '20704360'], ['chr2', '133012823']]
+        self.assertEqual(removeListDups(array), ['chr12', 'chr21', 'chr5', 'chr8', 'chr4', 'chr11', 'chr2'])
+
 if __name__ == '__main__':
     unittest.main()
