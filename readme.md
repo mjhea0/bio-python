@@ -8,6 +8,7 @@
 2. navigate into directory - `$ cd bio-python`
 3. extract "coding_tasks.tgz"
 4. run problem files:
+  
   ```python
   $ python problem1.py
   $ python problem2.py
